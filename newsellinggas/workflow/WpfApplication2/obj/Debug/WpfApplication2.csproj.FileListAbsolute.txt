@@ -1,0 +1,13 @@
+c:\users\administrator\documents\visual studio 2013\Projects\WpfApplication2\WpfApplication2\bin\Debug\Workflow.exe.config
+c:\users\administrator\documents\visual studio 2013\Projects\WpfApplication2\WpfApplication2\bin\Debug\Workflow.exe
+c:\users\administrator\documents\visual studio 2013\Projects\WpfApplication2\WpfApplication2\bin\Debug\Workflow.pdb
+c:\users\administrator\documents\visual studio 2013\Projects\WpfApplication2\WpfApplication2\obj\Debug\WpfApplication2.csprojResolveAssemblyReference.cache
+c:\users\administrator\documents\visual studio 2013\Projects\WpfApplication2\WpfApplication2\obj\Debug\MainWindow.baml
+c:\users\administrator\documents\visual studio 2013\Projects\WpfApplication2\WpfApplication2\obj\Debug\MainWindow.g.cs
+c:\users\administrator\documents\visual studio 2013\Projects\WpfApplication2\WpfApplication2\obj\Debug\App.g.cs
+c:\users\administrator\documents\visual studio 2013\Projects\WpfApplication2\WpfApplication2\obj\Debug\Workflow_MarkupCompile.cache
+c:\users\administrator\documents\visual studio 2013\Projects\WpfApplication2\WpfApplication2\obj\Debug\Workflow.g.resources
+c:\users\administrator\documents\visual studio 2013\Projects\WpfApplication2\WpfApplication2\obj\Debug\Workflow.Properties.Resources.resources
+c:\users\administrator\documents\visual studio 2013\Projects\WpfApplication2\WpfApplication2\obj\Debug\WpfApplication2.csproj.GenerateResource.Cache
+c:\users\administrator\documents\visual studio 2013\Projects\WpfApplication2\WpfApplication2\obj\Debug\Workflow.exe
+c:\users\administrator\documents\visual studio 2013\Projects\WpfApplication2\WpfApplication2\obj\Debug\Workflow.pdb

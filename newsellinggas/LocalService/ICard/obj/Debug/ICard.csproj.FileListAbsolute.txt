@@ -1,0 +1,15 @@
+C:\Workspace\sellinggasV2\LocalService\ICard\bin\Debug\ICard.dll
+C:\Workspace\sellinggasV2\LocalService\ICard\bin\Debug\ICard.pdb
+C:\Workspace\sellinggasV2\LocalService\ICard\obj\Debug\ResolveAssemblyReference.cache
+C:\Workspace\sellinggasV2\LocalService\ICard\obj\Debug\ICard.dll
+C:\Workspace\sellinggasV2\LocalService\ICard\obj\Debug\ICard.pdb
+C:\Workspace\alashangas\LocalService\ICard\bin\Debug\ICard.dll
+C:\Workspace\alashangas\LocalService\ICard\bin\Debug\ICard.pdb
+C:\Workspace\alashangas\LocalService\ICard\obj\Debug\ResolveAssemblyReference.cache
+C:\Workspace\alashangas\LocalService\ICard\obj\Debug\ICard.dll
+C:\Workspace\alashangas\LocalService\ICard\obj\Debug\ICard.pdb
+E:\NewWork\newsellinggas\LocalService\ICard\bin\Debug\ICard.dll
+E:\NewWork\newsellinggas\LocalService\ICard\bin\Debug\ICard.pdb
+E:\NewWork\newsellinggas\LocalService\ICard\obj\Debug\ICard.dll
+E:\NewWork\newsellinggas\LocalService\ICard\obj\Debug\ICard.pdb
+E:\NewWork\newsellinggas\LocalService\ICard\obj\Debug\ICard.csprojResolveAssemblyReference.cache

@@ -1,0 +1,6 @@
+E:\NewWork\newsellinggas\s2\s2.Web\bin\s2.Web.dll.config
+E:\NewWork\newsellinggas\s2\s2.Web\bin\s2.Web.dll
+E:\NewWork\newsellinggas\s2\s2.Web\bin\s2.Web.pdb
+E:\NewWork\newsellinggas\s2\s2.Web\obj\Debug\s2.Web.csprojResolveAssemblyReference.cache
+E:\NewWork\newsellinggas\s2\s2.Web\obj\Debug\s2.Web.dll
+E:\NewWork\newsellinggas\s2\s2.Web\obj\Debug\s2.Web.pdb
