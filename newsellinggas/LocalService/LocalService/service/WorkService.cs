@@ -19,6 +19,10 @@ using System.ComponentModel;
 namespace service
 {
     //服务类
+    //串行化声明，指定一次接受一个请求处理
+    // InstanceContextMode.Single 所有客户端代理都使用服务端同一个静态服务实例对象为其服务
+    // ConcurrencyMode.Single  某时刻只处理一个客户端请求，其他请求放入请求队列中等待处理。如果多个客户端对服务并发访问，这些服务最终在服务端也是通过串行化进行处理
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Single)]
     class WorkService : WebServerInterface
     {
         private static Log Log = Log.GetInstance("service.WorkService");
