@@ -272,6 +272,9 @@
 		  ></o:GeneralObject>
             <o:ObjectList Name="devicename" WebClientInfo="{StaticResource dbclient}" Path="from paramvalue where param.name='设备名称'"/>
             
+            
+           <!--站点配置对象-->
+            <o:FileConfigObj Name="portObj" FilePath="c:\\port.txt" IsLoad="True"     ></o:FileConfigObj>
         </m:ResourceLoad>
 
         <sdk:Frame Name="MainFrame" Source=
