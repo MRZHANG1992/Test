@@ -1390,3 +1390,4 @@ E:\GitStore\newsellinggas\s2\s2\obj\Debug\奥枫燃气营收系统V3.g.resources
 E:\GitStore\newsellinggas\s2\s2\obj\Debug\奥枫燃气营收系统V3.dll
 E:\GitStore\newsellinggas\s2\s2\obj\Debug\奥枫燃气营收系统V3.pdb
 E:\GitStore\newsellinggas\s2\s2\obj\Debug\XapCacheFile.xml
+E:\GitStore\newsellinggas\s2\s2\obj\Debug\Pages\用户用气量统计.g.cs

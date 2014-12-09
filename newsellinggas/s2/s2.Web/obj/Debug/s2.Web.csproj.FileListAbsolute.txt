@@ -7,6 +7,6 @@ E:\NewWork\newsellinggas\s2\s2.Web\obj\Debug\s2.Web.pdb
 E:\GitStore\newsellinggas\s2\s2.Web\bin\s2.Web.dll.config
 E:\GitStore\newsellinggas\s2\s2.Web\bin\s2.Web.dll
 E:\GitStore\newsellinggas\s2\s2.Web\bin\s2.Web.pdb
-E:\GitStore\newsellinggas\s2\s2.Web\obj\Debug\s2.Web.csprojResolveAssemblyReference.cache
 E:\GitStore\newsellinggas\s2\s2.Web\obj\Debug\s2.Web.dll
 E:\GitStore\newsellinggas\s2\s2.Web\obj\Debug\s2.Web.pdb
+E:\GitStore\newsellinggas\s2\s2.Web\obj\Debug\s2.Web.csprojResolveAssemblyReference.cache

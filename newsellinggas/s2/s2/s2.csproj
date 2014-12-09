@@ -707,6 +707,9 @@
     <Compile Include="Pages\燃气表故障明细.xaml.cs">
       <DependentUpon>燃气表故障明细.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\用户用气量统计.xaml.cs">
+      <DependentUpon>用户用气量统计.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\用气设备修改.xaml.cs">
       <DependentUpon>用气设备修改.xaml</DependentUpon>
     </Compile>
@@ -2123,6 +2126,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\燃气表故障明细.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\用户用气量统计.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

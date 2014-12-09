@@ -509,7 +509,6 @@ E:\GitStore\restV2\s2\s2DLL\Bin\Debug\uk\System.ComponentModel.DataAnnotations.r
 E:\GitStore\restV2\s2\s2DLL\Bin\Debug\vi\System.ComponentModel.DataAnnotations.resources.dll
 E:\GitStore\restV2\s2\s2DLL\Bin\Debug\zh-Hans\System.ComponentModel.DataAnnotations.resources.dll
 E:\GitStore\restV2\s2\s2DLL\Bin\Debug\zh-Hant\System.ComponentModel.DataAnnotations.resources.dll
-E:\GitStore\restV2\s2\s2DLL\obj\Debug\s2DLL.csprojResolveAssemblyReference.cache
 E:\GitStore\restV2\s2\s2DLL\obj\Debug\Program\Controls\ShowMessage.g.cs
 E:\GitStore\restV2\s2\s2DLL\obj\Debug\Program\Controls\CardList.g.cs
 E:\GitStore\restV2\s2\s2DLL\obj\Debug\Program\Controls\CardPanel.g.cs
@@ -518,3 +517,4 @@ E:\GitStore\restV2\s2\s2DLL\obj\Debug\Program\Controls\Month.g.cs
 E:\GitStore\restV2\s2\s2DLL\obj\Debug\s2DLL.g.resources
 E:\GitStore\restV2\s2\s2DLL\obj\Debug\s2DLL.dll
 E:\GitStore\restV2\s2\s2DLL\obj\Debug\s2DLL.pdb
+E:\GitStore\restV2\s2\s2DLL\obj\Debug\s2DLL.csprojResolveAssemblyReference.cache

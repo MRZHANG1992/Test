@@ -197,6 +197,16 @@ namespace Com.Aote.Pages
             }
         }
 
+        private void DisplayPopup(object sender, RoutedEventArgs e)
+        {
+            if (myPopup.IsOpen == false) { 
+            myPopup.IsOpen = true;
+            }
+            else{
+                myPopup.IsOpen = false;
+            }
+        }
+
 
     }
 }
