@@ -47,7 +47,7 @@
 
             <!--当前登录用户用户的最小未用发票号-->
             <o:GeneralObject Name="LoginUserfapiao" EntityType="t_gsxiangou" WebClientInfo="{StaticResource dbclient}"
-                   Path="{m:Exp Str=$one/select new Map(f_invoicenum as fapiaohao) from t_fapiaoinfos  where id in(select min(id) from t_fapiaoinfos  where  f_sgoperator\=\'\{LoginUser.name\}\' and f_fapiaostatue\=\'未用\' ) }">
+                   Path="{m:Exp Str=portObj.port\=\=null:$one/select new Map(f_invoicenum as fapiaohao) from t_fapiaoinfos  where id in(select min(id) from t_fapiaoinfos  where  f_sgoperator\=\'\{LoginUser.name\}\' and f_fapiaostatue\=\'未用\' )$\,$one/select new Map(f_invoicenum as fapiaohao) from t_fapiaoinfos  where id in(select min(id) from t_fapiaoinfos  where  f_sgoperator\=\'\{portObj.port\}\' and f_fapiaostatue\=\'未用\' ) }">
             </o:GeneralObject>
             
             <!--服务器时间-->

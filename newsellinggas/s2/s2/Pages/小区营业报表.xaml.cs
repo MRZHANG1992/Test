@@ -17,5 +17,9 @@ namespace Com.Aote.Pages
 			// Required to initialize variables
 			InitializeComponent();
 		}
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            detail.Visibility = Visibility.Visible;
+        }
 	}
 }
