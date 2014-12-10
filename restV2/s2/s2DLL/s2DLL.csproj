@@ -60,18 +60,12 @@
     <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.Data.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-<<<<<<< .mine
     <Reference Include="System.Windows.Controls.Input.Toolkit" />
-=======
->>>>>>> .r26693
     <Reference Include="System.Windows.Controls.Navigation, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.Toolkit">
       <HintPath>..\dlls\System.Windows.Controls.Toolkit.dll</HintPath>
     </Reference>
-<<<<<<< .mine
     <Reference Include="System.Windows.Controls.Toolkit.Internals" />
-=======
->>>>>>> .r26693
     <Reference Include="System.Windows.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Interactivity, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -158,6 +152,7 @@
     <Compile Include="Program\ObjectTools\DefaultCaputerSource.cs" />
     <Compile Include="Program\ObjectTools\DllHTVcDll.cs" />
     <Compile Include="Program\ObjectTools\ExcelObj.cs" />
+    <Compile Include="Program\ObjectTools\FileConfigObj.cs" />
     <Compile Include="Program\ObjectTools\GasADObject.cs" />
     <Compile Include="Program\ObjectTools\GeneralICCard.cs" />
     <Compile Include="Program\ObjectTools\GeneralObject.cs" />
