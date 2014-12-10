@@ -90,7 +90,7 @@
 								<a:Data.Context>
 									<o:SearchObject />        	
 								</a:Data.Context>
-						<Button Content=" 查  询" x:Name="dansearchbutton" Grid.Row="1" Grid.Column="4" Click="{m:Exp Str=daninfosearch.DataContext.Search()}" Margin="13,1,7,-1" FontSize="14"  />
+						<Button Content=" 查  询" x:Name="dansearchbutton" Grid.Row="1" Grid.Column="6" Click="{m:Exp Str=daninfosearch.DataContext.Search()}" Margin="13,1,7,-1" FontSize="14"  />
 						<StackPanel Grid.Row="1" Grid.Column="7" Orientation="Horizontal">
 						<Button Content=" 置  空"  Click="{m:Exp Str=daninfosearch.DataContext.f_yytdate1\=null;daninfosearch.DataContext.f_yytdate2\=null}" FontSize="14" HorizontalAlignment="Left" Width="60" />
 						<Button Content="导出Excel" Click="{m:Exp Str=toExcel.ToExcel()}"/>
@@ -130,7 +130,18 @@
 									Operator="f_yytdate ^= substring('this',1,10)" />               
 							</a:Data.Prop>
 						</sdk:DatePicker>
-						<TextBlock TextWrapping="Wrap" Text="到：" Grid.Column="2" Margin="0,2,0,1" Height="25" TextAlignment="Right"/>
+                        <TextBox TextWrapping="Wrap" Grid.Row="1"  Grid.Column="5" Text="{m:Bind Path=f_districtname}" Width="Auto" Margin="0" Height="25" >
+                            <a:Data.Prop>
+                                <o:PropertySetter PropertyName="f_districtname"  Operator="f_address like '%this%'"/>
+                            </a:Data.Prop>
+                        </TextBox>
+                        <!--TextBlock Grid.Row="1" Grid.Column="4" Height="25" Margin="15,5,0,0">小区名称:</>
+                        <TextBox Text="{m:Bind Path=f_districtname}" Margin="0"  Height="20" VerticalAlignment="Stretch" Width="80" Grid.Row="2" Grid.Column="5" >
+                            <a:Data.Prop>
+                                <o:PropertySetter PropertyName="f_districtname" Operator="f_districtname like 'this%'"/>
+                            </a:Data.Prop>
+                        </TextBox-->
+                        <TextBlock TextWrapping="Wrap" Text="到：" Grid.Column="2" Margin="0,2,0,1" Height="25" TextAlignment="Right"/>
 								<!--ComboBox x:Name="zy_Copy"  SelectedValue="{m:Bind Path=f_bankname}" Grid.Column="1" ItemsSource="{m:Exp Str=yinhanglist}"  Margin="1,0,-1,2" DisplayMemberPath="name" SelectedValuePath="name"  Height="25" HorizontalAlignment="Stretch" Width="Auto" VerticalAlignment="Bottom" d:LayoutOverrides="Height">
 									<a:Data.Prop>
 										<o:PropertySetter PropertyName="f_bankname"  Operator="f_bankname = 'this'"/>          
@@ -154,110 +165,72 @@
 								<a:Data.Items>
 									<o:PagedList x:Name="daninfoslist" WebClientInfo="{StaticResource dbclient}"
 									LoadOnPathChanged="False" IsOld="{m:Exp Str='dansearchbutton=>Click!=null'}"
-									Names="f_districtname,bishu,qiliang,yingjiaojine,f_grossproceeds,a,x,f"
+									Names="f_districtname,bishu,kaihushu,gaojiagas,dijiagas,gaojiafee,dijiafee"
 									SumHQL="{m:Exp Str=$
+select  a1.f_districtname f_districtname\,a4.jiaoyibishu bishu\,a1.kaihushu kaihushu\,a3.gao gaojiagas\,a2.di dijiagas\,a3.gaojia gaojiafee\, a2.dijia dijiafee from
+(select f_districtname\,COUNT(*) kaihushu from t_sellinggas where f_payfeetype\=\'发卡售气\' and f_payfeevalid\=\'有效\'  
+and (Convert(varchar(10)\,f_deliverydate\,20))^(Convert(varchar(10)\,\'2014-12-09\'\,20)) and (Convert(varchar(10)\,f_deliverydate\,20))\>(Convert(varchar(10)\,\'2014-11-28\'\,20))    group by f_districtname  ) a1
+left join
+(select f_districtname\,SUM(f_pregas) di\,SUM(f_preamount) dijia from t_sellinggas where f_gaspricetype\=\'民用气价\'
+ and f_payfeevalid\=\'有效\' and (Convert(varchar(10)\,f_deliverydate\,20))^(Convert(varchar(10)\,
+	 \'\{daninfosearch.DataContext.f_deliverydate2\}\'\,20)) and (Convert(varchar(10)\,f_deliverydate\,20))\>(Convert(varchar(10)\,
+	 \'\{daninfosearch.DataContext.f_deliverydate1\}\'\,20))   group by f_districtname) a2
+on a1.f_districtname\=a2.f_districtname
+left join
+(select f_districtname\,SUM(f_pregas) gao\,SUM(f_preamount) gaojia from t_sellinggas where f_gaspricetype\=\'商业气价\'
+ and f_payfeevalid\=\'有效\' and (Convert(varchar(10)\,f_deliverydate\,20))^(Convert(varchar(10)\,
+	\'\{daninfosearch.DataContext.f_deliverydate2\}\'\,20)) and (Convert(varchar(10)\,f_deliverydate\,20))\>(Convert(varchar(10)\,
+	 \'\{daninfosearch.DataContext.f_deliverydate1\}\'\,20))  group by f_districtname) a3
 
-select ss.f_districtname f_districtname\,ss.bishu bishu\,ss.qiliang qiliang\,ss.yingjiaojine yingjiaojine\,
-ss.f_grossproceeds f_grossproceeds\,ee.a a\,ee.x x\,ee.f
-from(
-(select
- u.f_districtname\,
- COUNT(*)bishu\, 
- Sum(t_sellingg0_.f_pregas)qiliang\, 
- sum(cast(t_sellingg0_.f_preamount as numeric(19\,2)))yingjiaojine\, 
- sum(cast(t_sellingg0_.f_grossproceeds as numeric(19\,2)))f_grossproceeds
+on a1.f_districtname\=a3.f_districtname
+left join
+(select count(*) jiaoyibishu\,f_districtname from t_sellinggas where  f_payfeevalid\=\'有效\' 
+and (Convert(varchar(10)\,f_deliverydate\,20))^(Convert(varchar(10)\,
+	 \'\{daninfosearch.DataContext.f_deliverydate2\}\'\,20)) and (Convert(varchar(10)\,f_deliverydate\,20))\>(Convert(varchar(10)\,
+	 \'\{daninfosearch.DataContext.f_deliverydate1\}\'\,20))   group by f_districtname) a4
+on a4.f_districtname\=a1.f_districtname
+where a1.f_districtname like  \'%\{daninfosearch.DataContext.f_districtname\}%\'\
 
-  from 
- t_sellinggas t_sellingg0_ 
- left join t_userfiles u on t_sellingg0_.f_userid \= u.f_userid
-  where 
- t_sellingg0_.f_payfeevalid\=\'有效\'
-  group by u.f_districtname)as ss left join 
-  (select cc.a\,cc.x\,n.f\,cc.f_districtname from 
-  (select z.a\,v.x\,z.f_districtname from
-(select u.f_districtname\,
-COUNT(u.f_userid)a
- from t_userfiles u
-where 
-u.f_userstate \= \'正常\' 
-group by u.f_districtname )z left join 
-(select u.f_districtname\,
-COUNT(u.f_userid)x
- from t_userfiles u
-where 
-u.f_userstate \= \'正常\' and u.f_gasmeterstyle \=\'机表\' 
 
-group by u.f_districtname)v on z.f_districtname \= v.f_districtname
- 
-)cc left join
-(select u.f_districtname\,
-COUNT(u.f_userid)f
- from t_userfiles u
-where 
-u.f_userstate \= \'正常\' and u.f_gasmeterstyle \=\'卡表\' 
-
-group by u.f_districtname)n on cc.f_districtname \= n.f_districtname
-)ee on ss.f_districtname \= ee.f_districtname
-)
 }"
-									HQL="{m:Exp Str=$
-select ss.f_districtname f_districtname\,ss.bishu bishu\,ss.qiliang qiliang\,ss.yingjiaojine yingjiaojine\,
-ss.f_grossproceeds f_grossproceeds\,ee.a a\,ee.x x\,ee.f
-from(
-(select
- u.f_districtname\,
- COUNT(*)bishu\, 
- Sum(t_sellingg0_.f_pregas)qiliang\, 
- sum(cast(t_sellingg0_.f_preamount as numeric(19\,2)))yingjiaojine\, 
- sum(cast(t_sellingg0_.f_grossproceeds as numeric(19\,2)))f_grossproceeds
+									HQL="{m:Exp Str=$select  a1.f_districtname f_districtname\,a4.jiaoyibishu bishu\,a1.kaihushu kaihushu\,a3.gao gaojiagas\,a2.di dijiagas\,a3.gaojia gaojiafee\, a2.dijia dijiafee from
+(select f_districtname\,COUNT(*) kaihushu from t_sellinggas where f_payfeetype\=\'发卡售气\' and f_payfeevalid\=\'有效\'  
+and (Convert(varchar(10)\,f_deliverydate\,20))^(Convert(varchar(10)\,\'\{daninfosearch.DataContext.f_deliverydate2\}\'\,20)) and (Convert(varchar(10)\,f_deliverydate\,20))\>(Convert(varchar(10)\,\'\{daninfosearch.DataContext.f_deliverydate1\}\'\,20))    group by f_districtname  ) a1
+left join
+(select f_districtname\,SUM(f_pregas) di\,SUM(f_preamount) dijia from t_sellinggas where f_gaspricetype\=\'民用气价\'
+ and f_payfeevalid\=\'有效\' and (Convert(varchar(10)\,f_deliverydate\,20))^(Convert(varchar(10)\,
+	 \'\{daninfosearch.DataContext.f_deliverydate2\}\'\,20)) and (Convert(varchar(10)\,f_deliverydate\,20))\>(Convert(varchar(10)\,
+	 \'\{daninfosearch.DataContext.f_deliverydate1\}\'\,20))   group by f_districtname) a2
+on a1.f_districtname\=a2.f_districtname
+left join
+(select f_districtname\,SUM(f_pregas) gao\,SUM(f_preamount) gaojia from t_sellinggas where f_gaspricetype\=\'商业气价\'
+ and f_payfeevalid\=\'有效\' and (Convert(varchar(10)\,f_deliverydate\,20))^(Convert(varchar(10)\,
+	 \'\{daninfosearch.DataContext.f_deliverydate2\}\'\,20)) and (Convert(varchar(10)\,f_deliverydate\,20))\>(Convert(varchar(10)\,
+	\'\{daninfosearch.DataContext.f_deliverydate1\}\'\,20))  group by f_districtname) a3
 
-  from 
- t_sellinggas t_sellingg0_ 
- left join t_userfiles u on t_sellingg0_.f_userid \= u.f_userid
-  where 
- t_sellingg0_.f_payfeevalid\=\'有效\'
-  group by u.f_districtname)as ss left join 
-  (select cc.a\,cc.x\,n.f\,cc.f_districtname from 
-  (select z.a\,v.x\,z.f_districtname from
-(select u.f_districtname\,
-COUNT(u.f_userid)a
- from t_userfiles u
-where 
-u.f_userstate \= \'正常\' 
-group by u.f_districtname )z left join 
-(select u.f_districtname\,
-COUNT(u.f_userid)x
- from t_userfiles u
-where 
-u.f_userstate \= \'正常\' and u.f_gasmeterstyle \=\'机表\' 
+on a1.f_districtname\=a3.f_districtname
+left join
+(select count(*) jiaoyibishu\,f_districtname from t_sellinggas where  f_payfeevalid\=\'有效\' 
+and (Convert(varchar(10)\,f_deliverydate\,20))^(Convert(varchar(10)\,
+	 \'\{daninfosearch.DataContext.f_deliverydate2\}\'\,20)) and (Convert(varchar(10)\,f_deliverydate\,20))\>(Convert(varchar(10)\,
+	 \'\{daninfosearch.DataContext.f_deliverydate1\}\'\,20))   group by f_districtname) a4
+on a4.f_districtname\=a1.f_districtname
+where a1.f_districtname like  \'%\{daninfosearch.DataContext.f_districtname\}%\'\
 
-group by u.f_districtname)v on z.f_districtname \= v.f_districtname
- 
-)cc left join
-(select u.f_districtname\,
-COUNT(u.f_userid)f
- from t_userfiles u
-where 
-u.f_userstate \= \'正常\' and u.f_gasmeterstyle \=\'卡表\' 
-
-group by u.f_districtname)n on cc.f_districtname \= n.f_districtname
-)ee on ss.f_districtname \= ee.f_districtname
-)
-order by ee.f_districtname
 }"
  
-									Path="sql" PageIndex="{m:Exp Str=pager2.PageIndex}" PageSize="{m:Exp Str=pager2.PageSize}" SumNames="bishu,qiliang,yingjiaojine,f_grossproceeds,a"/>
+									Path="sql" PageIndex="{m:Exp Str=pager2.PageIndex}" PageSize="{m:Exp Str=pager2.PageSize}" SumNames="bishu,kaihushu"/>
 								</a:Data.Items>
 								<sdk:DataGrid.Columns>
 									<sdk:DataGridTextColumn Header="小 区 名" Binding="{Binding f_districtname}"/>
 									<sdk:DataGridTextColumn Header="交易笔数" Binding="{Binding bishu}"/>
-									<sdk:DataGridTextColumn Header="总 气 量" Binding="{Binding qiliang}"/>
-									<sdk:DataGridTextColumn Header="应交金额" Binding="{Binding yingjiaojine}"/>
-									<sdk:DataGridTextColumn Header="实收金额" Binding="{Binding f_grossproceeds}"/>
+									<sdk:DataGridTextColumn Header="开户数" Binding="{Binding kaihushu}"/>
+									<sdk:DataGridTextColumn Header="高价气量" Binding="{Binding gaojiagas}"/>
+									<sdk:DataGridTextColumn Header="高价金额" Binding="{Binding gaojiafee}"/>
 								
-									<sdk:DataGridTextColumn Header="小区总开户数" Binding="{Binding a}"/>
-									<sdk:DataGridTextColumn Header="卡表开户数" Binding="{Binding f}"/>	
-									<sdk:DataGridTextColumn Header="机表开户数" Binding="{Binding x}"/>
+									<sdk:DataGridTextColumn Header="低价气量" Binding="{Binding dijiagas}"/>
+									<sdk:DataGridTextColumn Header="低价金额" Binding="{Binding dijiafee}"/>	
+									
 												
 								</sdk:DataGrid.Columns>
 							</sdk:DataGrid>

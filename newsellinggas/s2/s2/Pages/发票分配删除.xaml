@@ -48,15 +48,16 @@
 		  		Path="{m:Exp Str=$one/from t_singlevalue where name \= \'总公司名称\'}"   >
             </o:GeneralObject>
 			<!--发票分配条件-->
-			 <o:ObjectList Name="fapiaofenpei" WebClientInfo="{StaticResource dbclient}"
-									Path="{m:Exp Str=LoginUser.f_fengongsi \=\= zonggongsi.value:$from t_invoicedistribution where \{daninfosearch.DataContext.Condition\}$\, LoginUser.f_fengongsi \!\= zonggongsi.value:$from t_invoicedistribution where  \{daninfosearch.DataContext.Condition\} and f_filiale \=\'\{LoginUser.f_fengongsi\}\'$\,$abc$}" 
-									IsOld="{m:Exp Str=DeleteAction.State\=\=$End$}"/>
-		    <!--发票信息列表-->
-			 <o:PagedObjectList Name="fapiaolist" WebClientInfo="{StaticResource dbclient}"
-									Path="{m:Exp Str=LoginUser.f_fengongsi \=\= zonggongsi.value and fenpeitj.SelectedItem!\=null:$from t_fapiaoinfos where parentid\=\{fenpeitj.SelectedItem.id\}$\, LoginUser.f_fengongsi \!\= zonggongsi.value and fenpeitj.SelectedItem!\=null:$from t_fapiaoinfos where parentid\=\{fenpeitj.SelectedItem.id\} and f_filiale \=\'\{LoginUser.f_fengongsi\}\'$\,$abc$}" 
-								PageIndex="{m:Exp Str=pager2.PageIndex}" PageSize="{m:Exp Str=pager2.PageSize}" SumNames="id" IsOld="{m:Exp Str=DeleteAction.State\=\=$End$}" 
+            <o:ObjectList Name="fapiaofenpei" WebClientInfo="{StaticResource dbclient}"
+									Path="{m:Exp Str=LoginUser.f_fengongsi \=\= zonggongsi.value:$from t_invoicedistribution where \{daninfosearch.DataContext.Condition\}$\, LoginUser.f_fengongsi \!\= zonggongsi.value:$from t_invoicedistribution where  \{daninfosearch.DataContext.Condition\} and f_filiale \=\'\{LoginUser.f_fengongsi\}\'$\,$abcd$}" 
+							IsOld="{m:Exp Str=DeleteAction.State\=\=$End$}"		
+                          />
+            <!--发票信息列表-->
+            <o:PagedObjectList Name="fapiaolist" WebClientInfo="{StaticResource dbclient}"
+									Path="{m:Exp Str=LoginUser.f_fengongsi \=\= zonggongsi.value and fenpeitj.SelectedItem!\=null:$from t_fapiaoinfos where parentid\=\{fenpeitj.SelectedItem.id\}$\, LoginUser.f_fengongsi \!\= zonggongsi.value and fenpeitj.SelectedItem!\=null:$from t_fapiaoinfos where parentid\=\{fenpeitj.SelectedItem.id\} and f_filiale \=\'\{LoginUser.f_fengongsi\}\'$\,null}" 
+								PageIndex="{m:Exp Str=pager2.PageIndex}" PageSize="{m:Exp Str=pager2.PageSize}" SumNames="id" IsOld="{m:Exp Str=DeleteAction.State\=\=$End$}"		
 			 />
-		</m:ResourceLoad>
+        </m:ResourceLoad>
 		<!--sdk:TabControl Margin="0" >
 					
 			<sdk:TabItem Header="民用档案" Height="Auto" Width="Auto" Margin="0,2,0,0"DataContext="{m:Res Key=jicha}"-->
@@ -106,7 +107,7 @@
 							</Grid>
 							
 					<sdk:DataGrid x:Name="fenpeitj"  Margin="0,1,0,2" toolkit:DockPanel.Dock="Top"  IsReadOnly="True" MaxHeight="150" 
-								AutoGenerateColumns="False" Background="{x:Null}" ItemsSource="{m:Exp Str=fapiaofenpei}" Grid.Row="2">
+								AutoGenerateColumns="False" Background="{x:Null}" SelectedIndex="0" ItemsSource="{m:Exp Str=fapiaofenpei}" Grid.Row="2">
 								
 								<sdk:DataGrid.Columns>
 									<sdk:DataGridTextColumn d:IsLocked="True" Header="序  号" Binding="{Binding Index}"/>
