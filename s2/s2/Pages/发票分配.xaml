@@ -36,7 +36,7 @@
             <!--批量生成发票时采用的SQL语句-->
 			<b:HQLAction Name="InsertInvoice" WebClientInfo="{StaticResource dbclient}" Type="sql" 
 HQL="{m:Exp Str=$
-insert into t_fapiaoinfos(f_invoiceid\, f_invoicenum\, f_filiale\, f_fapiaostatue\, f_sgoperator\,f_sgnetwork\,
+insert into t_fapiaoinfos(f_invoiceid\, f_invoicenum\, f_filiale\, f_fapiaostatue\, f_sgoperator\,
 	parentid)
 select \'\{fenpei.f_invoiceid\}\'\, value\, \'\{fenpei.f_filiale\}\'\, \'未用\'\, \'\{fenpei.f_sgoperator\}\'\,
 	\{fenpei.id\}

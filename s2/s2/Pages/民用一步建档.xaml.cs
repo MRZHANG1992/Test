@@ -22,5 +22,7 @@ namespace Com.Aote.Pages
            {
                f_address.Text = f_area.Text + f_districtname.Text + f_cusDom.Text + "号楼" + f_cusDy.Text + "单元" + f_apartment.Text + "室";
            }
+
+           
 	}
 }

@@ -140,7 +140,7 @@
                             </a:Data.Prop>
                         </ComboBox>
                         <TextBlock TextWrapping="Wrap" Grid.Row="3" Grid.Column="0" Margin="0,2,0,1" Height="25" TextAlignment="Right" Text="收费日期 从："/>
-                        <sdk:DatePicker Name="tj4" SelectedDate="{m:Bind Path=f_yytdate1}" Grid.Row="3" Grid.Column="1" a:ControlAttach.DefaultButton="searchbutton" Width="Auto" Margin="0,2,0,1" Height="25" HorizontalAlignment="Stretch" >
+                        <sdk:DatePicker Name="tj4" SelectedDate="{m:Bind Path=f_yytdate1}" Grid.Row="3" Grid.Column="1" a:ControlAttach.DefaultButton="searchbutton" Width="Auto" Margin="0,2,0,1" Height="25" HorizontalAlignment="Stretch">
                             <a:Data.Prop>
                                 <o:PropertySetter PropertyName="f_yytdate1"  Value="{m:Exp Str=SysTime.Today}" 
 											Operator="f_deliverydate >= substring('this',1,10)"/>
@@ -243,14 +243,14 @@ Path="{m:Exp Str=LoginUser.f_fengongsi \=\= zonggongsi.value:$from t_sellinggas 
 									LoadOnPathChanged="False" IsOld="{m:Exp Str='dansearchbutton=>Click!=null'}"
 									Names="f_userid,f_username,f_address,f_districtname,f_apartment,f_cardid,f_gasprice,f_pregas,f_zhinajin,f_preamount,f_grossproceeds,f_cardfees,f_payfeevalid,f_sgnetwork,f_sgoperator,f_deliverydate,f_usertype,f_gaswatchbrand,f_gaspricetype,f_beginfee,f_endfee,f_amountmaintenance,f_payment,f_totalcost,f_zhye,f_benqizhye,f_invoicenum,f_payfeetype,f_filiale,f_comtype,f_deliverytime,id,dates,f_stardate,f_enddate,f_stair1amount,f_stair1fee,f_stair1price,f_stair2amount,f_stair2fee,f_stair2price,f_stair3amount,f_stair3fee,f_stair3price,f_stair4amount,f_stair4fee,f_stair1price"
 									SumHQL="{m:Exp Str=$
-                                    select f_userid\,f_username\,f_address\,f_districtname\,f_apartment\,f_cardid\,f_gasprice\,f_pregas\,f_zhinajin\,cast(f_preamount as numeric(10\,2)) f_preamount\,cast(f_grossproceeds as numeric(10\,2)) f_grossproceeds\,f_cardfees\,f_payfeevalid\,f_sgnetwork\,f_sgoperator\,CONVERT(varchar(12)\, f_deliverydate\, 111 ) f_deliverydate\,f_usertype\,f_gaswatchbrand\,f_gaspricetype\,CONVERT(varchar(12)\, f_beginfee\, 111 ) f_beginfee\,CONVERT(varchar(12)\, f_endfee\, 111 ) f_endfee\,f_amountmaintenance\,f_payment\,f_totalcost\,f_zhye\,f_benqizhye\,f_invoicenum\,f_payfeetype\,f_filiale\,f_comtype\,CONVERT(varchar(8)\, f_deliverytime\, 108 ) f_deliverytime\,id\,CONVERT(varchar(100)\, dates) dates\,
+                                    select f_userid\,f_username\,f_address\,f_districtname\,f_apartment\,f_cardid\,f_gasprice\,f_pregas\,f_zhinajin\,  f_preamount\,  f_grossproceeds\,f_cardfees\,f_payfeevalid\,f_sgnetwork\,f_sgoperator\,CONVERT(varchar(12)\, f_deliverydate\, 111 ) f_deliverydate\,f_usertype\,f_gaswatchbrand\,f_gaspricetype\,CONVERT(varchar(12)\, f_beginfee\, 111 ) f_beginfee\,CONVERT(varchar(12)\, f_endfee\, 111 ) f_endfee\,f_amountmaintenance\,f_payment\,f_totalcost\,f_zhye\,f_benqizhye\,f_invoicenum\,f_payfeetype\,f_filiale\,f_comtype\,CONVERT(varchar(8)\, f_deliverytime\, 108 ) f_deliverytime\,id\,CONVERT(varchar(100)\, dates) dates\,
                                     f_stardate\,f_enddate\,f_stair1amount\,f_stair1fee\,f_stair1price\,f_stair2amount\,f_stair2fee\,f_stair2price\,f_stair3amount\,f_stair3fee\,f_stair3price\,f_stair4amount\,f_stair4fee\,f_stair4price
                                      from t_sellinggas s 
                                      left join (select DISTINCT  f_sellid\,(select substring(convert(varchar(50)\,lastinputdate\,120)\,1\,7)+\'\,\' from t_handplan a where a.f_sellid\=b.f_sellid for xml path(\'\')) as dates from t_handplan b where f_sellid is not null) h on s.id \= h.f_sellid
                                      where \{daninfosearch.DataContext.Condition\}  
                                     }"
 									HQL="{m:Exp Str=$
-                                    select f_userid\,f_username\,f_address\,f_districtname\,f_apartment\,f_cardid\,f_gasprice\,f_pregas\,f_zhinajin\,cast(f_preamount as numeric(10\,2)) f_preamount\,cast(f_grossproceeds as numeric(10\,2)) f_grossproceeds\,f_cardfees\,f_payfeevalid\,f_sgnetwork\,f_sgoperator\,CONVERT(varchar(12)\, f_deliverydate\, 111 ) f_deliverydate\,f_usertype\,f_gaswatchbrand\,f_gaspricetype\,CONVERT(varchar(12)\, f_beginfee\, 111 ) f_beginfee\,CONVERT(varchar(12)\, f_endfee\, 111 ) f_endfee\,f_amountmaintenance\,f_payment\,f_totalcost\,f_zhye\,f_benqizhye\,f_invoicenum\,f_payfeetype\,f_filiale\,f_comtype\,CONVERT(varchar(8)\, f_deliverytime\, 108 ) f_deliverytime\,id\,CONVERT(varchar(100)\, dates) dates\, 
+                                    select f_userid\,f_username\,f_address\,f_districtname\,f_apartment\,f_cardid\,f_gasprice\,f_pregas\,f_zhinajin\,f_preamount\, f_grossproceeds\,f_cardfees\,f_payfeevalid\,f_sgnetwork\,f_sgoperator\,CONVERT(varchar(12)\, f_deliverydate\, 111 ) f_deliverydate\,f_usertype\,f_gaswatchbrand\,f_gaspricetype\,CONVERT(varchar(12)\, f_beginfee\, 111 ) f_beginfee\,CONVERT(varchar(12)\, f_endfee\, 111 ) f_endfee\,f_amountmaintenance\,f_payment\,f_totalcost\,f_zhye\,f_benqizhye\,f_invoicenum\,f_payfeetype\,f_filiale\,f_comtype\,CONVERT(varchar(8)\, f_deliverytime\, 108 ) f_deliverytime\,id\,CONVERT(varchar(100)\, dates) dates\, 
                                      f_stardate\,f_enddate\,f_stair1amount\,f_stair1fee\,f_stair1price\,f_stair2amount\,f_stair2fee\,f_stair2price\,f_stair3amount\,f_stair3fee\,f_stair3price\,f_stair4amount\,f_stair4fee\,f_stair4price
                                     from t_sellinggas s 
                                      left join (select DISTINCT  f_sellid\,(select substring(convert(varchar(50)\,lastinputdate\,120)\,1\,7)+\'\,\' from t_handplan a where a.f_sellid\=b.f_sellid for xml path(\'\')) as dates from t_handplan b where f_sellid is not null) h on s.id \= h.f_sellid
@@ -330,19 +330,26 @@ Path="{m:Exp Str=LoginUser.f_fengongsi \=\= zonggongsi.value:$from t_sellinggas 
         <c:PrintPageObj x:Name="print" ListNameInArea="selllist" Area="{m:Res Key=sqprint1}" 
       List="{m:Exp Str=daninfos.ItemsSource}" PageRow="42"  />
 
-        <Grid  x:Name="sqprint1" VerticalAlignment="Bottom" Margin="-1355,0,0,25" HorizontalAlignment="Left" Width="1227" >
+        <Grid  x:Name="sqprint1" VerticalAlignment="Bottom" Margin="-1355,0,0,25"  HorizontalAlignment="Left" Width="1227" >
             <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="0.942*"/>
             </Grid.RowDefinitions>
-            <sdk:Label HorizontalAlignment="Left" Grid.Row="0" Content="总记录数:" Height="24"   VerticalAlignment="Bottom" Width="105" Margin="2,0,0,4"/>
-            <sdk:Label HorizontalAlignment="Left" Content="{m:Exp Str=daninfos.ItemsSource.Count}"  Grid.Row="0" Height="24" Margin="111,0,0,4" VerticalAlignment="Bottom" Width="90"/>
-            <sdk:Label HorizontalAlignment="Left" Grid.Row="0" Content="总购气量:" Height="24" Margin="207,0,0,4" VerticalAlignment="Bottom" Width="68"/>
-            <sdk:Label HorizontalAlignment="Left" Grid.Row="0"  Content="{m:Exp Str=daninfos.ItemsSource.f_pregas}" Height="24" Margin="275,0,0,4" VerticalAlignment="Bottom" Width="145"/>
-            <sdk:Label Grid.Row="0" Content="总金额 :" Height="24" Margin="432,0,0,4" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="55"/>
-            <sdk:Label Grid.Row="0"  Height="24" Content="{m:Exp Str=daninfos.ItemsSource.f_grossproceeds}" Margin="491,0,0,3" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="294"/>
+            <sdk:Label HorizontalAlignment="Left" Content="日期范围：" Grid.Row="1" Height="25" Width="80"></sdk:Label>
+            <sdk:Label HorizontalAlignment="Left" Content="{m:Exp Str=daninfosearch.DataContext.f_yytdate1}" Grid.Row="1" Width="70" Margin="100,0,0,0"></sdk:Label>
+            <sdk:Label HorizontalAlignment="Left" Content="{m:Exp Str=daninfosearch.DataContext.f_yytdate}" Grid.Row="1" Width="80" Margin="350,0,0,0"></sdk:Label>
+            <sdk:Label HorizontalAlignment="Left" Content="到：" Margin="300,3,0,2" Grid.Row="1" Height="25" Width="36"></sdk:Label>
+            <sdk:Label HorizontalAlignment="Left" Grid.Row="0" Content="{m:Exp Str=daninfosearch.DataContext.f_gaspricetype}" Height="24" FontSize="20"  VerticalAlignment="Bottom" Width="105" Margin="300,0,0,4"/>
+            <sdk:Label HorizontalAlignment="Left" Grid.Row="2" Content="总记录数:" Height="24"   VerticalAlignment="Bottom" Width="105" Margin="2,0,0,4"/>
+            <sdk:Label HorizontalAlignment="Left" Content="{m:Exp Str=daninfos.ItemsSource.Count}"  Grid.Row="2" Height="24" Margin="111,0,0,4" VerticalAlignment="Bottom" Width="90"/>
+            <sdk:Label HorizontalAlignment="Left" Grid.Row="2" Content="总购气量:" Height="24" Margin="207,0,0,4" VerticalAlignment="Bottom" Width="68"/>
+            <sdk:Label HorizontalAlignment="Left" Grid.Row="2"  Content="{m:Exp Str=daninfos.ItemsSource.f_pregas}" Height="24" Margin="275,0,0,4" VerticalAlignment="Bottom" Width="145"/>
+            <sdk:Label Grid.Row="2" Content="总金额 :" Height="24" Margin="432,0,0,4" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="55"/>
+            <sdk:Label Grid.Row="2"  Height="24" Content="{m:Exp Str=daninfos.ItemsSource.f_grossproceeds}" Margin="491,0,0,3" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="294"/>
 
-            <sdk:DataGrid x:Name="selllist" AutoGenerateColumns="False" Style="{StaticResource DataGridPrintStyle}" FontSize="11"  Grid.Row="1" VerticalAlignment="Top" >
+            <sdk:DataGrid x:Name="selllist" AutoGenerateColumns="False" Style="{StaticResource DataGridPrintStyle}" FontSize="11"  Grid.Row="3" VerticalAlignment="Top" >
                 <sdk:DataGrid.Columns>
                     <sdk:DataGridTemplateColumn Header=" " d:IsLocked="True" >
                         <sdk:DataGridTemplateColumn.CellTemplate>

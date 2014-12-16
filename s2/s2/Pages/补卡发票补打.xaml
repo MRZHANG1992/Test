@@ -283,17 +283,17 @@
 								</a:Data.Prop>
 							</TextBox>
 							<TextBlock Margin="0" Grid.Row="7" Text="补卡时间：" TextWrapping="Wrap" TextAlignment="Right" Height="25" d:LayoutOverrides="HorizontalAlignment"/>
-							<toolkit:TimePicker Value="{m:Bind Path=f_recoverycardtime}" IsEnabled="False" Grid.Column="1" Margin="0" Grid.Row="7"   IsDropDownOpen="False"  VerticalAlignment="Stretch" Height="25" HorizontalAlignment="Stretch" Grid.ColumnSpan="1" >
+							<!--toolkit:TimePicker Value="{m:Bind Path=f_recoverycardtime}" IsEnabled="False" Grid.Column="1" Margin="0" Grid.Row="7"   IsDropDownOpen="False"  VerticalAlignment="Stretch" Height="25" HorizontalAlignment="Stretch" Grid.ColumnSpan="1" >
 								<a:Data.Prop>
 									<o:PropertySetter PropertyName="f_recoverycardtime" Value="{m:Exp Str=buda.f_recoverycardtime\=&gt;Completed}" />
 								</a:Data.Prop>
-							</toolkit:TimePicker>
+							</-->
 							<TextBlock Margin="0" Grid.Row="11" Text="补打时间：" TextWrapping="Wrap" TextAlignment="Right" Height="25" d:LayoutOverrides="HorizontalAlignment"/>
-							<toolkit:TimePicker Value="{m:Bind Path=f_reversaltime}" IsEnabled="False" Grid.Column="1" Margin="0" Grid.Row="11"   IsDropDownOpen="False"  VerticalAlignment="Stretch" Height="25" HorizontalAlignment="Stretch" Grid.ColumnSpan="1"  >
+							<!--toolkit:TimePicker Value="{m:Bind Path=f_reversaltime}" IsEnabled="False" Grid.Column="1" Margin="0" Grid.Row="11"   IsDropDownOpen="False"  VerticalAlignment="Stretch" Height="25" HorizontalAlignment="Stretch" Grid.ColumnSpan="1"  >
 								<a:Data.Prop>
 									<o:PropertySetter PropertyName="f_reversaltime" Value="{m:Exp Str=SecRefresh\=&gt;TimeEvent!\=null:SysTime.Now\,$$}" />
 								</a:Data.Prop>
-							</toolkit:TimePicker>
+							</-->
 							
 						</Grid>
 					</toolkit:DockPanel>

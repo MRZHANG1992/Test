@@ -20,7 +20,7 @@
         <m:ResourceLoad Margin="0,0,-12,0">
             <!--发卡费-->
             <o:GeneralObject Name="fakafei" EntityType="t_singlevalue" WebClientInfo="{StaticResource dbclient}" 
-		        IsInit="{m:Exp Str='print.State\=\=$End$ or zzprint.State==$End$'}" 
+		        IsInit="{m:Exp Str='print1.State\=\=$End$ or zzprint.State==$End$'}" 
 		  		Path="{m:Exp Str=$one/from t_singlevalue where name \= \'\{LoginUser.f_fengongsi\}\{userfiles.f_usertype\}\卡\费\'}"   >
             </o:GeneralObject>
 
@@ -38,7 +38,7 @@
 
             <!--换表对象-->
             <o:GeneralObject Name="pipelinego" EntityType="t_changmeter" WebClientInfo="{StaticResource dbclient}" 
-		    IsInit="{m:Exp Str='print.State\=\=$End$ or zzprint.State==$End'}">
+		    IsInit="{m:Exp Str='print1.State\=\=$End$ or zzprint.State==$End'}">
                 <o:PropertySetter PropertyName="f_zherownum" Value="{m:Exp Str=userfiles !\= null and userfiles.f_zherownum !\= null and userfiles.f_zherownum.ToInt()^24:userfiles.f_zherownum+1\,1}"/>
                 <o:PropertySetter PropertyName="f_state" Default="换表登记"></o:PropertySetter>
             </o:GeneralObject>
@@ -49,7 +49,7 @@
 			PageIndex="{m:Exp Str=pager.PageIndex}" PageSize="{m:Exp Str=pager.PageSize}" SumNames="f_times"/>
             <!--用户对象-->
             <o:GeneralObject Name="userfiles" NotEmpty="true" EntityType="t_userfiles" WebClientInfo="{StaticResource dbclient}"
-			IsInit="{m:Exp Str='print.State\=\=$End$ or zzprint.State==$End$'}"
+			IsInit="{m:Exp Str='print1.State\=\=$End$ or zzprint.State==$End$'}"
             Path="{m:Exp Str=
 			card.CardId\=>ReadCompleted!\=null and card.Factory!\=null:$one/from t_userfiles where f_cardid\=\'\{card.CardId\}\' and f_aliasname\=\'\{card.Factory\}\' and f_filiale\=\'\{LoginUser.f_fengongsi\}\'$\,pipelines.SelectedItem.f_userid\=>SelectionChanged\!\=null:$one/from t_userfiles where f_userid\=\'\{pipelines.SelectedItem.f_userid\}\' and f_filiale\=\'\{LoginUser.f_fengongsi\}\'$\,$null$}">
                 <!--换表回写-->
@@ -583,100 +583,76 @@
                 <o:GeneralObject  x:Name="fkprint1" WebClientInfo="{StaticResource dbclient}" EntityType="t_changmeter"  />
             </a:Data.Context>
 
-            <Path Data="M17,186 L492.26941,186" Height="1" Stretch="Fill" Stroke="Black" StrokeThickness="1" UseLayoutRounding="False" VerticalAlignment="Top" 
-Margin="215,54.704,442,0"/>
-            <Path Data="M72,0 L72,276.02899" Margin="273.983,0,0,30.285" Stretch="Fill" Stroke="Black" StrokeThickness="1" UseLayoutRounding="False" 
-HorizontalAlignment="Left" Width="1" Height="34" VerticalAlignment="Bottom" d:LayoutOverrides="VerticalAlignment"/>
-            <Path Data="M72,0 L72,276.02899" Margin="381.983,0,0,32.285" Stretch="Fill" Stroke="Black" StrokeThickness="1" UseLayoutRounding="False" 
-HorizontalAlignment="Left" Width="1" Height="33" VerticalAlignment="Bottom" d:LayoutOverrides="VerticalAlignment"/>
-            <Path Data="M72,0 L72,276.02899" Margin="0,231.715,489.013,200.285" Stretch="Fill" Stroke="Black" StrokeThickness="1" UseLayoutRounding="False" 
-HorizontalAlignment="Right" Width="1"/>
-            <Path Data="M17,186 L492.26941,186" Height="1" Stretch="Fill" Stroke="Black" StrokeThickness="1" UseLayoutRounding="False" VerticalAlignment="Top" Margin="18.667,82.704,381.139,0"/>
-            <Path Data="M72,0 L72,276.02899" Margin="18.631,82.602,0,32.285" Stretch="Fill" Stroke="Black" StrokeThickness="1" UseLayoutRounding="False" HorizontalAlignment="Left" Width="1" d:LayoutOverrides="VerticalAlignment"/>
-            <Path Data="M17,186 L492.26941,186" Height="1" Stretch="Fill" Stroke="Black" StrokeThickness="1" UseLayoutRounding="False" VerticalAlignment="Top" 
-Margin="18.667,112.038,381.139,0"/>
-            <Path Data="M72,0 L72,276.02899" Margin="129.623,82.602,0,32.285" Stretch="Fill" Stroke="Black" StrokeThickness="1" UseLayoutRounding="False" 
-HorizontalAlignment="Left" Width="1" d:LayoutOverrides="VerticalAlignment"/>
-            <Path Data="M17,186 L492.26941,186" Height="1" Stretch="Fill" Stroke="Black" StrokeThickness="1" UseLayoutRounding="False" VerticalAlignment="Top" 
-Margin="18.667,142.706,381.139,0"/>
-            <Path Data="M72,0 L72,276.02899" Margin="0,80.602,380.377,32" Stretch="Fill" Stroke="Black" StrokeThickness="1" UseLayoutRounding="False" 
-HorizontalAlignment="Right" Width="1" d:LayoutOverrides="VerticalAlignment"/>
-            <Path Data="M17,186 L492.26941,186" Height="1" Stretch="Fill" Stroke="Black" StrokeThickness="1" UseLayoutRounding="False" VerticalAlignment="Top" 
-Margin="18.667,314.382,381.139,0"/>
-            <Path Data="M17,186 L492.26941,186" Height="1" Stretch="Fill" Stroke="Black" StrokeThickness="1" UseLayoutRounding="False" VerticalAlignment="Bottom" 
-Margin="18.667,0,382.139,167.285" d:LayoutOverrides="VerticalAlignment"/>
-            <Path Data="M72,0 L72,276.02899" Margin="274.97,82.602,0,0" Stretch="Fill" Stroke="Black" StrokeThickness="1" UseLayoutRounding="False" 
-HorizontalAlignment="Left" Width="1" Height="164.104" VerticalAlignment="Top"/>
-            <Path Data="M72,0 L72,276.02899" Margin="382.306,84.602,0,0" Stretch="Fill" Stroke="Black" StrokeThickness="1" UseLayoutRounding="False" 
-HorizontalAlignment="Left" Width="1" Height="162.104" VerticalAlignment="Top"/>
-            <Path Data="M17,186 L492.26941,186" Height="1" Stretch="Fill" Stroke="Black" StrokeThickness="1" UseLayoutRounding="False" VerticalAlignment="Bottom" 
-Margin="18.667,0,381.139,98.285"/>
-            <Path Data="M17,186 L492.26941,186" Stretch="Fill" Stroke="Black" StrokeThickness="1" UseLayoutRounding="False" 
-Margin="18.667,0,381.139,132.294" Height="1" VerticalAlignment="Bottom"/>
-            <Path Data="M72,0 L72,276.02899" Margin="0,143.602,492.013,32.398" Stretch="Fill" Stroke="Black" StrokeThickness="1" UseLayoutRounding="False" HorizontalAlignment="Right" Width="2" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
-                <Path.RenderTransform>
-                    <CompositeTransform ScaleX="-1"/>
-                </Path.RenderTransform>
-            </Path>
-            <Path Data="M17,186 L492.26941,186" Height="1" Stretch="Fill" Stroke="Black" StrokeThickness="1" UseLayoutRounding="False" VerticalAlignment="Top" 
-Margin="18.667,280.706,381.139,0"/>
-            <Path Data="M72,0 L72,276.02899" Margin="530.987,143.602,0,31.294" Stretch="Fill" Stroke="Black" StrokeThickness="1" UseLayoutRounding="False" HorizontalAlignment="Left" Width="1" d:LayoutOverrides="VerticalAlignment"/>
-            <sdk:Label Height="20" Margin="250,33,523,0" Content="阿 拉 善 盟 昆 仑 燃 气  有 限 责 任 公 司 收 费 票 据" VerticalAlignment="Top" FontSize="15" />
-            <sdk:Label  Content="年" HorizontalAlignment="Left" Height="16" Margin="113,66,0,0"  VerticalAlignment="Top" Width="17"/>
-            <sdk:Label  Content="月" HorizontalAlignment="Left" Height="16" Margin="159,66,0,0"  VerticalAlignment="Top" Width="15"/>
-            <sdk:Label HorizontalAlignment="Left" Content="日" Height="16" Margin="210,66,0,0" VerticalAlignment="Top" Width="13"/>
-            <sdk:Label HorizontalAlignment="Left" Content="用户编号" FontSize="15" Height="22" Margin="39,89,0,0" VerticalAlignment="Top" Width="63"/>
-            <sdk:Label HorizontalAlignment="Left" Content="卡　　号" FontSize="15" Height="22" Margin="40,117,0,0" VerticalAlignment="Top" Width="63"/>
-            <sdk:Label HorizontalAlignment="Left" Content=" 补  气  量" FontSize="15" Height="22" Margin="38,219,0,0" VerticalAlignment="Top" Width="85"/>
-            <sdk:Label HorizontalAlignment="Left" Content="合计(大写)" FontSize="15" Margin="33,252,0,73" Width="73"/>
-            <sdk:Label Content="用户名称" FontSize="15" Height="22" Margin="543,87,500,0" VerticalAlignment="Top"/>
-            <sdk:Label HorizontalAlignment="Left" Content="用户地址" FontSize="15" Height="22" Margin="295,117,0,0" VerticalAlignment="Top" Width="63"/>
-            <sdk:Label Content="合     计:" FontSize="15" Margin="549,254,504,69"/>
-            <sdk:Label Content="操  作  员" FontSize="15" Margin="549,0,509,38" Height="22" VerticalAlignment="Bottom" d:LayoutOverrides="VerticalAlignment"/>
-            <sdk:Label  Content="网　点"   HorizontalAlignment="Left" Height="25" Margin="289,0,0,36" FontSize="15" VerticalAlignment="Bottom" Width="61" d:LayoutOverrides="VerticalAlignment"/>
-            <sdk:Label HorizontalAlignment="Left" Content="操作类型" FontSize="15" Height="22" Margin="43,148,0,0" VerticalAlignment="Top" Width="59"/>
-            <sdk:Label HorizontalAlignment="Left" Content="公　司" FontSize="15" Height="22" Margin="44,0,0,37" VerticalAlignment="Bottom" Width="59" d:LayoutOverrides="VerticalAlignment"/>
-            <sdk:Label Content="  换表类型" FontSize="15" Height="22" Margin="287,149,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="92"/>
-            <sdk:Label Content="卡费(元)" FontSize="15" Height="22" Margin="546,151,500,0" VerticalAlignment="Top"/>
-            <sdk:Label Content="表费(元)" FontSize="15" Height="22" Margin="546,219,500,0" VerticalAlignment="Top"/>
-            <sdk:Label Content="   新表表号" FontSize="15" Height="22" Margin="532,185,493,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
-            <sdk:Label HorizontalAlignment="Left" Content=" 新表型号" FontSize="15" Margin="293,184,0,0" Height="22" VerticalAlignment="Top"/>
-            <sdk:Label HorizontalAlignment="Left" Content=" 新表品牌" FontSize="15" Margin="38,186,0,0" Height="22" VerticalAlignment="Top"/>
-            <TextBlock Text="{m:Exp Str=SysTime.Now.ToString($yyyy$)}" Grid.Column="0"  HorizontalAlignment="Left" Margin="59,63,0,0" TextWrapping="Wrap" Width="52" Height="18" VerticalAlignment="Top" d:LayoutOverrides="Height, GridBox"/>
-            <TextBlock Text="{m:Exp Str=SysTime.Now.ToString($MM$)}"  HorizontalAlignment="Left" Margin="133,65,0,0" TextWrapping="Wrap" Width="25" Height="18" VerticalAlignment="Top" d:LayoutOverrides="Height, GridBox"/>
-            <TextBlock Text="{m:Exp Str=SysTime.Now.ToString($dd$)}"  HorizontalAlignment="Left" Margin="181,65,0,0" TextWrapping="Wrap" Width="27" Height="18" VerticalAlignment="Top" d:LayoutOverrides="Height, GridBox"/>
-            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_watchtype}" Margin="132,150,0,0" TextWrapping="Wrap" Height="20" VerticalAlignment="Top" Grid.ColumnSpan="1" d:LayoutOverrides="Height, GridBox" HorizontalAlignment="Left" Width="142"/>
-            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_pinpai}" Margin="131,185,0,0" TextWrapping="Wrap" Height="20" VerticalAlignment="Top" Grid.ColumnSpan="1" d:LayoutOverrides="Height, GridBox" HorizontalAlignment="Left" Width="142"/>
-            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_filiale}" Margin="130,0,0,38" TextWrapping="Wrap" Height="20" VerticalAlignment="Bottom" Grid.ColumnSpan="1" d:LayoutOverrides="VerticalAlignment, Height, GridBox" HorizontalAlignment="Left" Width="143"/>
-            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_replacewatchtype}" Margin="384,151,0,0" TextWrapping="Wrap" Height="20" VerticalAlignment="Top" d:LayoutOverrides="Height, GridBox" HorizontalAlignment="Left" Width="147"/>
-            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_qbnumber}" Margin="383,186,0,0" TextWrapping="Wrap" Height="20" VerticalAlignment="Top" d:LayoutOverrides="Height, GridBox" HorizontalAlignment="Left" Width="148"/>
-            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_changmeterfee.ToChinaMoney()}"  HorizontalAlignment="Left" Margin="132,255,0,71" TextWrapping="Wrap" Width="399" Height="20" d:LayoutOverrides="GridBox"/>
-            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_username}" Margin="0,88,382,0" Height="20" VerticalAlignment="Top" d:LayoutOverrides="Height, GridBox" HorizontalAlignment="Right" Width="108"/>
-            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_address}"  HorizontalAlignment="Stretch" Margin="385,117,381,0"  Width="Auto" Height="20" VerticalAlignment="Top" d:LayoutOverrides="Height, GridBox"/>
-            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_userid}"  HorizontalAlignment="Left" Margin="132,89,0,0"  Width="141" Height="20" VerticalAlignment="Top" Padding="0,2,0,0" d:LayoutOverrides="Height, GridBox"/>
-            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_cardid}"  HorizontalAlignment="Left" Margin="132,118,0,0"  Width="143" Height="20" VerticalAlignment="Top" Padding="0,2,0,0" d:LayoutOverrides="Height, GridBox"/>
-            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_cmaddgas}" HorizontalAlignment="Left" Margin="132,219,0,0"  Width="142" Height="20" VerticalAlignment="Top" Padding="0,2,0,0" d:LayoutOverrides="Height, GridBox"/>
-            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_cardfees}"  HorizontalAlignment="Right" Margin="0,152,383,0"  Width="106" Height="20" VerticalAlignment="Top" d:LayoutOverrides="Height, GridBox"/>
-            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_watchfee}"  HorizontalAlignment="Right" Margin="0,219,383,0"  Width="106" Height="20" VerticalAlignment="Top" d:LayoutOverrides="Height, GridBox"/>
-            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_cmnewmeternumber}"  HorizontalAlignment="Right" Margin="0,185,384,0"  Width="106" Height="20" VerticalAlignment="Top" d:LayoutOverrides="Height, GridBox"/>
-            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_watchfee+pipeline.DataContext.f_cardfees}"  HorizontalAlignment="Right" Margin="0,256,384,70" TextWrapping="Wrap" Width="106" Height="20" Grid.ColumnSpan="1" d:LayoutOverrides="GridBox"/>
-            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_parentname4}" Margin="385,0,0,36" TextWrapping="Wrap" Height="22" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="145"/>
-            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_cmoperator}"  HorizontalAlignment="Right" Margin="0,0,383,39" TextWrapping="Wrap" Width="107" Height="20" VerticalAlignment="Bottom" d:LayoutOverrides="VerticalAlignment, Height, GridBox"/>
-            <sdk:Label HorizontalAlignment="Left" Content="超用气量" FontSize="15" Margin="293,0,0,106" Width="65" Height="22" VerticalAlignment="Bottom"/>
-            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_cypregas}" Margin="384,0,0,106" TextWrapping="Wrap" Height="20" Grid.ColumnSpan="1" HorizontalAlignment="Left" Width="142" d:LayoutOverrides="Height, GridBox" VerticalAlignment="Bottom"/>
-            <Path Data="M72,0 L72,276.02899" Margin="0,85.602,492.013,234.398" Stretch="Fill" Stroke="Black" StrokeThickness="1" UseLayoutRounding="False" HorizontalAlignment="Right" Width="2" RenderTransformOrigin="0.5,0.5">
-                <Path.RenderTransform>
-                    <CompositeTransform ScaleX="-1"/>
-                </Path.RenderTransform>
-            </Path>
-            <Path Data="M72,0 L72,276.02899" Margin="529.987,85.602,0,234.398" Stretch="Fill" Stroke="Black" StrokeThickness="1" UseLayoutRounding="False" HorizontalAlignment="Left" Width="2" RenderTransformOrigin="0.5,0.5">
-                <Path.RenderTransform>
-                    <CompositeTransform ScaleX="-1"/>
-                </Path.RenderTransform>
-            </Path>
-            <sdk:Label Content="用户表号" FontSize="15" Height="22" Margin="296,87,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="82"/>
-            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_meternumber}" Margin="387,88,0,0" Height="20" VerticalAlignment="Top" d:LayoutOverrides="Height, GridBox" HorizontalAlignment="Left" Width="139"/>
+            <sdk:Label HorizontalAlignment="Left" Content="IC 卡收费凭证" FontSize="15" 
+Height="22" Margin="107,42,0,0" VerticalAlignment="Top" Width="120"/>
+            <sdk:Label HorizontalAlignment="Left" Content="IC 卡收费凭证" FontSize="15" 
+            	Height="22" Margin="553,42,0,0" VerticalAlignment="Top" Width="120"/>
+            <sdk:Label HorizontalAlignment="Left" Content="********************************************" FontSize="15" 
+            	Height="22" Margin="27,69,0,0" VerticalAlignment="Top" Width="317"/>
+            <sdk:Label HorizontalAlignment="Left" Content="********************************************" FontSize="15" 
+            	Height="22" Margin="441,69,0,0" VerticalAlignment="Top" Width="317"/>
+            <sdk:Label HorizontalAlignment="Left" Content="用户姓名：" FontSize="15" 
+            	Height="22" Margin="27,96,0,0" VerticalAlignment="Top" Width="82"/>
+            <sdk:Label HorizontalAlignment="Left" Content="用户姓名：" FontSize="15" 
+            	Height="22" Margin="441,91,0,0" VerticalAlignment="Top" Width="82"/>
+            <sdk:Label HorizontalAlignment="Left" Content="操作：" FontSize="15" 
+            	Height="22" Margin="27,123,0,0" VerticalAlignment="Top" Width="58"/>
+            <sdk:Label HorizontalAlignment="Left" Content="操作：" FontSize="15" 
+            	Height="22" Margin="441,118,0,0" VerticalAlignment="Top" Width="55"/>
+            <sdk:Label HorizontalAlignment="Left" Content="补气量：" FontSize="15" 
+            	Height="22" Margin="176,123,0,0" VerticalAlignment="Top" Width="82"/>
+            <sdk:Label HorizontalAlignment="Left" Content="补气量：" FontSize="15" 
+            	Height="22" Margin="577,118,0,0" VerticalAlignment="Top" Width="82"/>
+            <sdk:Label HorizontalAlignment="Left" Content="操作员：" FontSize="15" 
+            	Height="22" Margin="27,154,0,0" VerticalAlignment="Top" Width="82"/>
+            <sdk:Label HorizontalAlignment="Left" Content="操作员：" FontSize="15" 
+            	Height="22" Margin="441,148,0,0" VerticalAlignment="Top" Width="82"/>
+            <sdk:Label HorizontalAlignment="Left" Content="总金额：" FontSize="15" 
+            	Height="22" Margin="176,154,0,0" VerticalAlignment="Top" Width="82"/>
+            <sdk:Label HorizontalAlignment="Left" Content="总金额：" FontSize="15" 
+            	Height="22" Margin="577,150,0,0" VerticalAlignment="Top" Width="82"/>
+            <sdk:Label HorizontalAlignment="Left" Content="操作日期：" FontSize="15" 
+            	Height="22" Margin="27,181,0,0" VerticalAlignment="Top" Width="82"/>
 
+            <sdk:Label HorizontalAlignment="Left" Content="操作日期：" FontSize="15" 
+            	Height="22" Margin="441,175,0,0" VerticalAlignment="Top" Width="82"/>
+            <sdk:Label HorizontalAlignment="Left" Content="金额大写：" FontSize="15" 
+            	Height="22" Margin="27,208,0,0" VerticalAlignment="Top" Width="82"/>
+            <sdk:Label HorizontalAlignment="Left" Content="金额大写：" FontSize="15" 
+            	Height="22" Margin="441,202,0,0" VerticalAlignment="Top" Width="82"/>
+            <sdk:Label HorizontalAlignment="Left" Content="********************************************" FontSize="15" 
+            	Height="22" Margin="27,230,0,0" VerticalAlignment="Top" Width="317"/>
+            <sdk:Label HorizontalAlignment="Left" Content="********************************************" FontSize="15" 
+            	Height="22" Margin="441,229,0,0" VerticalAlignment="Top" Width="317"/>
+            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_username}"  
+            	HorizontalAlignment="Stretch" Margin="107,97,881,0"  Width="Auto" Height="20" VerticalAlignment="Top"/>
+            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_username}"  
+            	HorizontalAlignment="Stretch" Margin="528,91,505,0"  Width="Auto" Height="20" VerticalAlignment="Top"/>
+            <TextBlock Text="换表"  
+            	HorizontalAlignment="Stretch" Margin="90,126,970,0"  Width="Auto" Height="20" VerticalAlignment="Top"/>
+            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_cmaddgas}"  
+            	HorizontalAlignment="Stretch" Margin="243,126,817,0"  Width="Auto" Height="20" VerticalAlignment="Top"/>
+            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_cmoperator}"  
+            	HorizontalAlignment="Stretch" Margin="106,154,954,0"  Width="Auto" Height="20" VerticalAlignment="Top"/>
+            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_changmeterfee}"  
+            	HorizontalAlignment="Stretch" Margin="258,156,802,0"  Width="Auto" Height="20" VerticalAlignment="Top"/>
+            <TextBlock Text="{m:Exp Str=SysTime.Today}"  
+            	HorizontalAlignment="Stretch" Margin="106,183,802,0"  Width="Auto" Height="20" VerticalAlignment="Top"/>
+
+            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_changmeterfee.ToChinaMoney()}"  
+            	HorizontalAlignment="Stretch" Margin="114,208,817,0"  Width="Auto" Height="20" VerticalAlignment="Top"/>
+            <TextBlock Text="换表"  
+            	HorizontalAlignment="Stretch" Margin="501,120,559,0"  Width="Auto" Height="20" VerticalAlignment="Top"/>
+            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_cmaddgas}"  
+            	HorizontalAlignment="Stretch" Margin="664,120,396,0"  Width="Auto" Height="20" VerticalAlignment="Top"/>
+            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_cmoperator}"  
+            	HorizontalAlignment="Stretch" Margin="507,150,553,0"  Width="Auto" Height="20" VerticalAlignment="Top"/>
+            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_changmeterfee}"  
+            	HorizontalAlignment="Stretch" Margin="664,154,396,0"  Width="Auto" Height="20" VerticalAlignment="Top" RenderTransformOrigin="0.677,0.5"/>
+            <TextBlock Text="{m:Exp Str=SysTime.Today}"  
+            	HorizontalAlignment="Stretch" Margin="528,177,380,0"  Width="Auto" Height="20" VerticalAlignment="Top"/>
+            <TextBlock Text="{m:Exp Str=pipeline.DataContext.f_changmeterfee.ToChinaMoney()}"  
+            	HorizontalAlignment="Stretch" Margin="535,204,396,0"  Width="Auto" Height="20" VerticalAlignment="Top"/>
         </Grid>
         <!--国税发票打印-->
         <Grid x:Name="guoshuiprint"  Background="White"  HorizontalAlignment="Left" Width="800"  VerticalAlignment="Bottom" Margin="67,0,0,-626" d:LayoutOverrides="Width, Height" Height="571">
@@ -807,8 +783,8 @@ Margin="18.667,280.706,381.139,0"/>
 
         <!--发票和折子打印-->
         <c:PrintObj Name="print1" Message="是否打印发票" IsPrint="{m:Exp Str=SaveAction.State\=\=$End$}" Area="{m:Res Key=guoshuiprint}"/>
-        <c:PrintObj Name="zzprint" Message="是否打印购气证" IsPrint="{m:Exp Str=print1.State\=\=$End$}" Area="{m:Res Key=zheziprint}" />
-        <c:PrintObj Name="print" Message="是否打印发票" IsPrint="{m:Exp Str=SaveAction.State\=\=$End$}" Area="{m:Res Key=aofengprint}" />
+        <c:PrintObj Name="zzprint" Message="是否打印购气证" IsPrint="False" Area="{m:Res Key=zheziprint}" />
+        
 
     </Grid>
 </UserControl>
