@@ -493,18 +493,18 @@
 									</a:Data.Prop>
 								</TextBox>
 								<TextBlock Grid.Column="2" Margin="0" Grid.Row="10" TextWrapping="Wrap" TextAlignment="Right" Height="25"><Run Text="交费"/><Run Text="时间"/><Run Text="："/></TextBlock>
-								<!--toolkit:TimePicker Value="{m:Bind Path=f_deliverytime}" IsEnabled="False" Grid.Column="3" Margin="0" Grid.Row="10"   IsDropDownOpen="False"  VerticalAlignment="Stretch" Height="25" HorizontalAlignment="Stretch" Width="Auto" Grid.ColumnSpan="1" >
+								<toolkit:TimePicker Value="{m:Bind Path=f_deliverytime}" IsEnabled="False" Grid.Column="3" Margin="0" Grid.Row="10"   IsDropDownOpen="False"  VerticalAlignment="Stretch" Height="25" HorizontalAlignment="Stretch" Width="Auto" Grid.ColumnSpan="1" >
 									<a:Data.Prop>
 										<o:PropertySetter PropertyName="f_deliverytime" />
 									</a:Data.Prop>
-								</toolkit:TimePicker-->
+								</toolkit:TimePicker>
 								<TextBlock Grid.Column="2" Margin="0" Grid.Row="13" Text="冲正时间：" TextAlignment="Right" Height="25"></TextBlock>
-								<!--toolkit:TimePicker Value="{m:Bind Path=f_reversaltime}" IsEnabled="False" Grid.Column="3" Margin="0" Grid.Row="13"   IsDropDownOpen="False"  VerticalAlignment="Stretch" Height="25" HorizontalAlignment="Stretch" Width="Auto" Grid.ColumnSpan="1" >
-									<a:Data.Prop>
-										<o:PropertySetter PropertyName="f_reversaltime" Value="{m:Exp Str=SecRefresh\=&gt;TimeEvent!\=null:SysTime.Now\,$$}"/>
-									</a:Data.Prop>
-								</-->
-								<TextBlock Text="卡　　号：" Grid.Column="4" Margin="0" TextWrapping="Wrap" TextAlignment="Right" Height="25"/>
+                            <toolkit:TimePicker Value="{m:Bind Path=f_reversaltime}" IsEnabled="False" Grid.Column="3" Margin="0" Grid.Row="13"   IsDropDownOpen="False"  VerticalAlignment="Stretch" Height="25" HorizontalAlignment="Stretch" Width="Auto" Grid.ColumnSpan="1" >
+                                <a:Data.Prop>
+                                    <o:PropertySetter PropertyName="f_reversaltime" Value="{m:Exp Str=SecRefresh\=&gt;TimeEvent!\=null:SysTime.Now\,$$}"/>
+                                </a:Data.Prop>
+                            </toolkit:TimePicker>
+                            <TextBlock Text="卡　　号：" Grid.Column="4" Margin="0" TextWrapping="Wrap" TextAlignment="Right" Height="25"/>
 								<TextBlock Text="卡里气量：" Margin="0" Grid.Row="11" TextWrapping="Wrap" TextAlignment="Right" Grid.Column="4" Height="25"/>
 								<TextBox Text="{m:Bind Path=f_gas}" IsReadOnly="True" Grid.Column="5" Margin="0" Grid.Row="11" TextWrapping="Wrap" Height="25" VerticalAlignment="Stretch" >
 									<a:Data.Prop>

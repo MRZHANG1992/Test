@@ -492,10 +492,10 @@
 							</-->
                             <TextBlock Margin="0" Grid.Row="15" Text="补打时间：" TextAlignment="Right" Height="25" />
                             <toolkit:TimePicker Value="{m:Bind Path=f_budatime}" IsEnabled="False" Grid.Column="1" Margin="0" Grid.Row="15"   IsDropDownOpen="False"  VerticalAlignment="Stretch" Height="25" HorizontalAlignment="Stretch" Width="Auto" >
-								<a:Data.Prop>
-									<o:PropertySetter PropertyName="f_budatime" Value="{m:Exp Str=SecRefresh\=&gt;TimeEvent!\=null:SysTime.Now\,$$}"/>
-								</a:Data.Prop>
-							</toolkit:TimePicker>
+                                <a:Data.Prop>
+                                    <o:PropertySetter PropertyName="f_budatime" Value="{m:Exp Str=SecRefresh\=&gt;TimeEvent!\=null:SysTime.Now\,$$}"/>
+                                </a:Data.Prop>
+                            </toolkit:TimePicker>
                             <TextBox Text="{m:Bind Path=f_apartment}" Grid.Column="3" Grid.Row="2" TextWrapping="Wrap" IsReadOnly="True" Height="25" >
                                 <a:Data.Prop>
                                     <o:PropertySetter PropertyName="f_apartment" Value="{m:Exp Str=userfiles.SelectedItem.f_apartment }" />
@@ -504,7 +504,7 @@
                             <TextBlock Grid.Column="4" Grid.Row="12" TextWrapping="Wrap" Text="发 票 号："  TextAlignment="Right" Height="25" Margin="0"/>
                             <TextBox Text="{m:Bind Path=f_invoicenum}" Grid.Column="5" Margin="0" Grid.Row="12" TextWrapping="Wrap" IsReadOnly="False" VerticalAlignment="Stretch" Height="25" >
                                 <a:Data.Prop>
-                                    <o:PropertySetter PropertyName="f_invoicenum"  Default="{m:Exp Str=LoginUserfapiao.fapiaohao !\=null \: LoginUserfapiao.fapiaohao.ToString()\,$$}" NoDependValue="{m:Exp Str=LoginUserfapiao.fapiaohao !\=null \:LoginUserfapiao.fapiaohao.ToString()\,$$}"/>
+                                    <o:PropertySetter PropertyName="f_invoicenum"  Default="{m:Exp Str=LoginUserfapiao.fapiaohao !\=null \:LoginUserfapiao.fapiaohao.ToString()\,$$}" NoDependValue="{m:Exp Str=LoginUserfapiao.fapiaohao !\=null \:LoginUserfapiao.fapiaohao.ToString()\,$$}"/>
                                 </a:Data.Prop>
                             </TextBox>
                             <TextBlock Text="原票号：" Margin="0" Grid.Row="9" TextWrapping="Wrap" TextAlignment="Right" Grid.Column="4" Height="25"/>
@@ -791,31 +791,37 @@
             <!--<TextBlock Text="{m:Exp Str='SecRefresh\=&gt;TimeEvent!\=null:SysTime.Now.ToString($HH:mm:ss$),$$'}" Grid.Column="2" Margin="-54,4,-19,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Stretch" d:LayoutOverrides="HorizontalAlignment"/>-->
             <sdk:Label Margin="0,0,1,4" Content="发票号码：" FontSize="10" Grid.Row="3" HorizontalAlignment="Right" VerticalContentAlignment="Top"/>
 
-            <TextBlock Text="{m:Exp Str=userfile.DataContext.f_invoicenum}" FontSize="10" Grid.Column="1" Margin="10,0,0,3" Grid.Row="3" TextWrapping="Wrap" Height="20" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="111"/>
+            <TextBlock Text="{m:Exp Str=$\{$00$\}\{userfile.DataContext.f_invoicenum\}$}" FontSize="10" Grid.Column="1" Margin="10,0,0,3" Grid.Row="3" TextWrapping="Wrap" Height="20" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="111"/>
             <sdk:Label Margin="0,1,0,17" Content="收款单位：" FontSize="10" Grid.Row="4" HorizontalAlignment="Right" VerticalContentAlignment="Top"/>
             <sdk:Label Margin="0,2,24,14" Content="东营市黄河燃气有限责任公司" FontSize="10" Grid.Row="4" HorizontalAlignment="Right" VerticalContentAlignment="Top" Grid.Column="1"/>
             <sdk:Label Margin="0,24,1,29" Content="开票日期：" FontSize="10" Grid.Row="4" HorizontalAlignment="Right" VerticalContentAlignment="Top" Grid.RowSpan="2"/>
 
             <TextBlock Text="{m:Exp Str=SysTime.Today}"  FontSize="10"  Grid.Column="1" Margin="10,26,0,29" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="111" RenderTransformOrigin="0.459,0.35" Grid.RowSpan="2"/>
-            <TextBlock Text="{m:Exp Str=userfilego.f_gasprice}"  FontSize="10"  Grid.Column="1" Margin="19,9,0,10" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="29"/>
-            <TextBlock Text="{m:Exp Str=userfilego.f_pregas}"  FontSize="10"  Grid.Column="1" Margin="74,9,0,10" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="29"/>
-            <TextBlock Text="{m:Exp Str=userfilego.f_preamount}"  FontSize="10"  Grid.Column="1" Margin="120,9,0,6" Grid.Row="6" TextWrapping="Wrap" Height="20" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="29"/>
+            <TextBlock Text="{m:Exp Str=userfilego.f_gasprice}"  FontSize="10"  Grid.Column="1" Margin="19,19,0,0" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="29" RenderTransformOrigin="0.414,1.125"/>
+            <TextBlock Text="{m:Exp Str=userfilego.f_pregas}"  FontSize="10"  Grid.Column="1" Margin="74,23,0,31" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="29" Grid.RowSpan="2"/>
+            <TextBlock Text="{m:Exp Str=userfilego.f_preamount}"  FontSize="10"  Grid.Column="1" Margin="120,19,0,31" Grid.Row="6" TextWrapping="Wrap" Height="20" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="29" RenderTransformOrigin="0.414,1.15" Grid.RowSpan="2"/>
 
-            <sdk:Label Margin="0,11,31,7" Content="项目" FontSize="10" Grid.Row="5" HorizontalAlignment="Right" VerticalContentAlignment="Top"/>
-            <sdk:Label Margin="0,11,120,1" Content="单价" FontSize="10" Grid.Row="5" HorizontalAlignment="Right" VerticalContentAlignment="Top" Grid.Column="1"/>
-            <sdk:Label Margin="0,11,65,1" Content="数量" FontSize="10" Grid.Row="5" HorizontalAlignment="Right" VerticalContentAlignment="Top" Grid.Column="1"/>
-            <sdk:Label Margin="0,11,19,1" Content="金额" FontSize="10" Grid.Row="5" HorizontalAlignment="Right" VerticalContentAlignment="Top" Grid.Column="1"/>
-            <sdk:Label Margin="0,0,150,18" Content="合计(小写):￥" FontSize="10" Grid.Row="7" HorizontalAlignment="Right" VerticalContentAlignment="Top" Grid.ColumnSpan="2"/>
-            <sdk:Label Margin="0,24,150,28" Content="合计(大写):￥" FontSize="10" Grid.Row="7" HorizontalAlignment="Right" VerticalContentAlignment="Top" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-            <TextBlock Text="{m:Exp Str=userfilego.f_preamount}"  FontSize="10"  Grid.Column="1" Margin="19,34,0,19" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="107" Grid.RowSpan="2"/>
-            <TextBlock Text="{m:Exp Str=userfilego.f_preamount.ToChinaMoney()}"  FontSize="10"  Grid.Column="1" Margin="19,24,0,31" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="102" Grid.RowSpan="2"/>
-
-
-
+            <sdk:Label Margin="0,0,30,22" Content="项目" FontSize="10" Grid.Row="5" HorizontalAlignment="Right" VerticalContentAlignment="Top" Height="17" VerticalAlignment="Bottom" Grid.RowSpan="2"/>
+            <sdk:Label Margin="0,31,120,16" Content="单价" FontSize="10" Grid.Row="5" HorizontalAlignment="Right" VerticalContentAlignment="Top" Grid.Column="1" Grid.RowSpan="2"/>
+            <sdk:Label Margin="0,29,65,18" Content="数量" FontSize="10" Grid.Row="5" HorizontalAlignment="Right" VerticalContentAlignment="Top" Grid.Column="1" Grid.RowSpan="2"/>
+            <sdk:Label Margin="0,29,19,23" Content="金额" FontSize="10" Grid.Row="5" HorizontalAlignment="Right" VerticalContentAlignment="Top" Grid.Column="1" Grid.RowSpan="2"/>
+            <sdk:Label Margin="0,13,150,5" Content="合计(小写):￥" FontSize="10" Grid.Row="7" HorizontalAlignment="Right" VerticalContentAlignment="Top" Grid.ColumnSpan="2"/>
+            <sdk:Label Margin="0,7,150,10" Content="合计(大写):￥" FontSize="10" Grid.Row="8" HorizontalAlignment="Right" VerticalContentAlignment="Top" Grid.ColumnSpan="2"/>
+            <TextBlock Text="{m:Exp Str=userfilego.f_preamount}"  FontSize="10"  Grid.Column="1" Margin="19,13,0,5" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="107"/>
+            <TextBlock Text="{m:Exp Str=userfilego.f_preamount.ToChinaMoney()}"  FontSize="10"  Grid.Column="1" Margin="19,7,0,13" Grid.Row="8" TextWrapping="Wrap" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="102"/>
+            <TextBlock Text="{m:Exp Str=userfilego.f_sgoperator}"  FontSize="10"  Grid.Column="1" Margin="19,27,0,28" Grid.Row="8" TextWrapping="Wrap" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="102" Grid.RowSpan="2"/>
 
 
 
-            <sdk:Label Margin="0,9,31,10" Content="气费" FontSize="10" Grid.Row="6" HorizontalAlignment="Right" VerticalContentAlignment="Top"/>
+
+
+
+            <sdk:Label Margin="0,23,30,31" Content="气费" FontSize="10" Grid.Row="6" HorizontalAlignment="Right" VerticalContentAlignment="Top" Grid.RowSpan="2"/>
+            <sdk:Label Margin="0,10,1,1" Content="用户编号：" FontSize="10" Grid.Row="2" HorizontalAlignment="Right" VerticalContentAlignment="Top"/>
+            <TextBlock Text="{m:Exp Str=userfilego.f_userid}" FontSize="10" Grid.Column="1" Margin="10,9,0,1" Grid.Row="2" TextWrapping="Wrap" Height="20" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="111"/>
+            <sdk:Label Margin="0,11,1,7" Content="税     号：" FontSize="10" Grid.Row="5" HorizontalAlignment="Right" VerticalContentAlignment="Top" Width="49"/>
+            <sdk:Label Margin="0,11,24,7" Content="370502743355064        " FontSize="10" Grid.Row="5" HorizontalAlignment="Right" VerticalContentAlignment="Top" Width="135" Grid.Column="1"/>
+            <sdk:Label Margin="0,30,1,22" Content="操  作  员：" FontSize="10" Grid.Row="8" HorizontalAlignment="Right" VerticalContentAlignment="Top" Grid.RowSpan="2" Width="49"/>
 
         </Grid>
 

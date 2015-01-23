@@ -6,6 +6,7 @@
     xmlns:a="clr-namespace:Com.Aote.Attachs;assembly=s2DLL"
     xmlns:o="clr-namespace:Com.Aote.ObjectTools;assembly=s2DLL"
     xmlns:b="clr-namespace:Com.Aote.Behaviors;assembly=s2DLL"
+    xmlns:oo="clr-namespace:Com.Aote.ObjectTools"
 	xmlns:c="clr-namespace:Com.Aote.Controls;assembly=s2DLL"
     xmlns:m="clr-namespace:Com.Aote.Marks;assembly=s2DLL"
     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
@@ -22,8 +23,8 @@
 	<m:ResourceLoad Margin="0,0,-12,0" Grid.ColumnSpan="1">
 		 
 		  <!--卡对象-->
-		    <o:GeneralICCard Name="card" >
-		    </o:GeneralICCard>
+		    <oo:NewGeneralICCard Name="card" >
+		    </oo:NewGeneralICCard>
 		<o:GeneralObject Name="ghfobj" EntityType="t_singlevalue" WebClientInfo="{StaticResource dbclient}" 
 		  		Path="one/from t_singlevalue where name='过户费' "></o:GeneralObject>
 			<o:ObjectList Name="jiaofeilist" WebClientInfo="{StaticResource dbclient}" Path="from paramvalue where param.name='交费类型'"/>

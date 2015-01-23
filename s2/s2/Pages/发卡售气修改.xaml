@@ -48,7 +48,7 @@
                     <a:Data.Context>
                         <o:SearchObject></o:SearchObject>
                     </a:Data.Context>
-                    <Grid Margin="0,-36,0,0" Width="857" Height="84" VerticalAlignment="Top">
+                    <Grid Margin="0,-36,0,-2" Width="857" Height="84" VerticalAlignment="Top">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.135*"/>
                             <ColumnDefinition Width="0.225*"/>

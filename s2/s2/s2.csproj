@@ -101,7 +101,7 @@
     </Reference>
     <Reference Include="System.Windows.Controls.Navigation, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.Toolkit">
-      <HintPath>..\..\..\restV2\s2\dlls\System.Windows.Controls.Toolkit.dll</HintPath>
+      <HintPath>E:\workspace 3.5\restV2\s2\dlls\System.Windows.Controls.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Controls.Toolkit.Internals">
       <HintPath>..\dlls\System.Windows.Controls.Toolkit.Internals.dll</HintPath>
@@ -187,6 +187,9 @@
     </Compile>
     <Compile Include="Pages\呼叫系统报表页面.xaml.cs">
       <DependentUpon>呼叫系统报表页面.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\售气收费报表.xaml.cs">
+      <DependentUpon>售气收费报表.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\大屏显示.xaml.cs">
       <DependentUpon>大屏显示.xaml</DependentUpon>
@@ -1434,6 +1437,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\呼叫系统报表页面.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\售气收费报表.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
