@@ -95,6 +95,7 @@ namespace service
                 string ip = Config.GetConfig("RemoteIP");
                 //从后台获取所有文件信息
                 WebClient client = new WebClient();
+                Log.Debug("ip is " + ip);
                 string str = client.DownloadString(ip + "/rs/card");
                 Log.Debug("download str" + str);
                 string[] infos = str.Split('|');
